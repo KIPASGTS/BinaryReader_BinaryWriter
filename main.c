@@ -12,4 +12,7 @@ int main() {
     string m_name = reader.read_str();
     int m_age = reader.read_int();
     cout << "Name: " << m_name << ", Age: " << m_age << endl;
+    
+    //Output
+    //Name: KIPASGTS, Age: 19
 }
