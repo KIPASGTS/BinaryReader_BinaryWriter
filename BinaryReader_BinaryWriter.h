@@ -27,7 +27,10 @@ public:
 		memcpy(m_buff + m_index, text, strlen(text));
 		m_index += strlen(text);
 	}
-	
+	void write_float(float val) {
+                memcpy(m_buff + m_index, &val, sizeof(float));
+		m_index += sizeof(float);
+        }
 	void save_as(const char* name) {
 		FILE *a = fopen(name, "wb");
 	    fwrite(m_buff, sizeof(uint8_t), m_index, a);
@@ -70,6 +73,11 @@ public:
 	int read_int() {
 		int val = *(int*)(m_buff + m_index);
 		m_index += sizeof(int);
+		return val;
+	}
+        float read_float() {
+		float val = *(float*)(m_buff + m_index);
+		m_index += sizeof(float);
 		return val;
 	}
 	string read_str() {
